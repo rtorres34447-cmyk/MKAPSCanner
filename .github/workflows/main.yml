@@ -8,7 +8,7 @@ on:
       - 'index.html'
       - 'icons/**'
       - 'android/**'
-      - '.github/workflows/build-apk.yml'
+      - '.github/workflows/main.yml'
 
 permissions:
   contents: read
