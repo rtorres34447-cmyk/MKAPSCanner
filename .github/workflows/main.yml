@@ -5,6 +5,7 @@ on:
     branches: [main, master]
     paths:
       - 'MKAfterpayScanner_v2.9_GitHub_Ready.zip'
+      - '.github/workflows/main.yml'
       - '.github/workflows/build-apk.yml'
       - 'app/**'
       - 'build.gradle'
@@ -35,7 +36,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          export ANDROID_HOME="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          export ANDROID_HOME="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
           SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
           if [ ! -x "$SDKMANAGER" ]; then SDKMANAGER="$(command -v sdkmanager)"; fi
           yes | "$SDKMANAGER" --licenses >/dev/null || true
